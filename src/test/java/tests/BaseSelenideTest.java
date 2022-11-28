@@ -10,6 +10,7 @@ public class BaseSelenideTest {
     @BeforeEach
     public void setup() {
         WebDriverManager.chromedriver().setup();
+        Configuration.headless = true;
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
