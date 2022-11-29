@@ -31,6 +31,18 @@ dependencies {
     testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.13.2'
 
 }
+def apiTest = tasks.register("apiTests", Test) {
+    useJUnitPlatform {
+        includeTags "API"
+    }
+}
+
+def uiTest = tasks.register("uiTests", Test) {
+    useJUnitPlatform {
+        includeTags "UI"
+    }
+}
+
 
 test {
     useJUnitPlatform()
