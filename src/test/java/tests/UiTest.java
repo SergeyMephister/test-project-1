@@ -25,4 +25,16 @@ public class UiTest extends BaseSelenideTest {
         searchResultsPage.checkingResults("selenide.org");
     }
 
+    @Test
+    @Owner("Sergey Mephister")
+    @Description("Search for one word and checking results")
+    @DisplayName("Search for one word and checking results")
+    public void searchBySelenideTestError() {
+        GoogleMainPage googleMainPage = new GoogleMainPage();
+        open("https://google.com");
+        googleMainPage.fillInputSearch("Selenide");
+        SearchResultsPage searchResultsPage = new SearchResultsPage();
+        searchResultsPage.checkingResults("selenide.orger");
+    }
+
 }
