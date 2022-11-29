@@ -11,7 +11,7 @@ import pages.SearchResultsPage;
 import static com.codeborne.selenide.Selenide.open;
 
 @Tag("UI")
-public class SearchSelenideTest extends BaseSelenideTest {
+public class UiTest extends BaseSelenideTest {
 
     @Test
     @Owner("Sergey Mephister")

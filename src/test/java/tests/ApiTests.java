@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 
 @Tag("API")
-public class RestTests {
+public class ApiTests {
 
     @BeforeAll
     public static void setBaseUrl(){
