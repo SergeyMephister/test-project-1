@@ -7,15 +7,22 @@ base_git_url = "https://github.com/SergeyMephister/test-project-1.git"
 node {
     withEnv(["branch=${branch_cutted}", "base_url=${base_git_url}"]) {
         stage("Checkout Branch") {
-            if (!"$branch_cutted".contains("master")) {
-                try {
-                    getProject("$base_git_url", "$branch_cutted")
-                } catch (err) {
-                    echo "Failed get branch $branch_cutted"
-                    throw ("${err}")
-                }
-            } else {
-                echo "Current branch is master"
+//            if (!"$branch_cutted".contains("master")) {
+//                try {
+//                    getProject("$base_git_url", "$branch_cutted")
+//                } catch (err) {
+//                    echo "Failed get branch $branch_cutted"
+//                    throw ("${err}")
+//                }
+//            } else {
+//                echo "Current branch is master"
+//            }
+            try {
+                getProject("$base_git_url", "$branch_cutted")
+                echo "Current branch is $branch_cutted"
+            } catch (err) {
+                echo "Failed get branch $branch_cutted"
+                throw ("${err}")
             }
         }
 
