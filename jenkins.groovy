@@ -68,7 +68,18 @@ def getTestStages(testTags) {
 def runTestWithTag(String tag) {
     try {
         //labelledShell(label: "Run ${tag}", script: "chmod +x gradlew \n./gradlew -x test ${tag}")
-        labelledShell(label: "Run ${tag}", script: "chmod +x gradlew \n./gradlew -x test ${tag} -Dselenide.browser=chrome -Dselenide.remote=http://localhost:4444/wd/hub")
+        labelledShell(label: "Run ${tag}", script: "chmod +x gradlew \n./gradlew -x test ${tag} " +
+                "-Dselenide.browser=chrome -DbrowserVersion=107.0 -DbrowserSize=1920x1080 " +
+                "-Dselenide.remote=http://localhost:4444/wd/hub")
+
+//        -Dbrowser=[BROWSER]
+//        -DbrowserVersion=[BROWSER_VERSION]
+//        -DbrowserSize=[BROWSER_SIZE]
+//        -DremoteDriverUrl=https://[selenoidUser]:[selenoidPwd]@[REMOTE_DRIVER_URL]/wd/hub/
+//        -DvideoStorage=https://[REMOTE_DRIVER_URL]/video/
+//        -Dthreads=[THREADS]
+//        -DaccountPassword=[ACCOUNT_PASSWORD]
+//        -DbaseUrl=[BASE_URL]
     } finally {
         echo "some failed tests"
     }
